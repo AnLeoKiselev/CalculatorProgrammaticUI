@@ -11,6 +11,8 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    private lazy var titleLabel = UILabel()
+    
     private lazy var parentStackView = UIStackView()
     
     private lazy var stackView1 = UIStackView()
@@ -21,9 +23,9 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureTitleLabel()
         configureParentStackView()
     }
-    
     private func configureParentStackView() {
         view.addSubview(parentStackView)
         parentStackView.axis = .vertical
@@ -43,7 +45,7 @@ class ViewController: UIViewController {
     
     private func setParentStackViewConstraints() {
         parentStackView.translatesAutoresizingMaskIntoConstraints = false
-        parentStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
+        parentStackView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 30).isActive = true
         parentStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 0).isActive = true
         parentStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 0).isActive = true
         parentStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
@@ -152,4 +154,22 @@ class ViewController: UIViewController {
         stackView5.addArrangedSubview(button4)
     }
     
+    private func configureTitleLabel() {
+            view.addSubview(titleLabel)
+            titleLabel.text = "How would you rate this tutorial?"
+            titleLabel.font = UIFont.boldSystemFont(ofSize: 36)
+            titleLabel.textAlignment = .center
+            titleLabel.numberOfLines = 0
+            titleLabel.adjustsFontSizeToFitWidth = true
+    
+            setTitleLabelConstraints()
+        }
+        
+        func setTitleLabelConstraints() {
+            titleLabel.translatesAutoresizingMaskIntoConstraints = false
+            titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20).isActive = true
+            titleLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
+            titleLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20).isActive = true
+    
+        }
 }
