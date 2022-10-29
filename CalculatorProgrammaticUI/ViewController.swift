@@ -30,19 +30,20 @@ class ViewController: UIViewController {
         parentStackView.distribution = .fillEqually
         parentStackView.spacing = 20
         
-        addButtonsToStackView()
         setParentStackViewConstraints()
         configureStackView()
-    }
-    
-    private func addButtonsToStackView() {
-        let numberOfButtons = 5
         
-        for i in 1...numberOfButtons {
-            let button = Button()
-            button.setTitle("\(i)", for: .normal)
-            parentStackView.addArrangedSubview(button)
-        }
+            addButtonsToStackView1()
+            addButtonsToStackView2()
+            addButtonsToStackView3()
+            addButtonsToStackView4()
+            addButtonsToStackView5()
+    
+            parentStackView.addArrangedSubview(stackView5)
+            parentStackView.addArrangedSubview(stackView4)
+            parentStackView.addArrangedSubview(stackView3)
+            parentStackView.addArrangedSubview(stackView2)
+            parentStackView.addArrangedSubview(stackView1)
     }
     
     private func setParentStackViewConstraints() {
@@ -151,32 +152,3 @@ class ViewController: UIViewController {
     }
     
 }
-
-//
-//    private func configureParentStackView() {
-//        //view.addSubview(parentStackView)
-//        view.addSubview(stackView1)
-//        //view.addSubview(topView)
-//
-//       // parentStackView.axis = .vertical
-//     //   parentStackView.distribution = .fillEqually
-//      //  parentStackView.spacing = 2
-//
-////
-//      //  setParentStackViewConstraints()
-//
-//        configureStackView()
-//
-//        addButtonsToStackView1()
-////        addButtonsToStackView2()
-////        addButtonsToStackView3()
-////        addButtonsToStackView4()
-////        addButtonsToStackView5()
-//
-//
-////        parentStackView.addArrangedSubview(stackView5)
-////        parentStackView.addArrangedSubview(stackView4)
-////        parentStackView.addArrangedSubview(stackView3)
-////        parentStackView.addArrangedSubview(stackView2)
-////        parentStackView.addArrangedSubview(stackView1)
-
