@@ -14,9 +14,7 @@ class ViewController: UIViewController {
     private lazy var label = UILabel()
     private lazy var topView1 = UIView()
     private lazy var topView2 = UIView()
-    
     private lazy var parentStackView = UIStackView()
-    
     private lazy var stackView1 = UIStackView()
     private lazy var stackView2 = UIStackView()
     private lazy var stackView3 = UIStackView()
@@ -26,11 +24,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .black
-        configureTopViews()
-        configureTitleLabel()
         configureParentStackView()
-        
     }
+    
     private func configureParentStackView() {
         view.addSubview(parentStackView)
         parentStackView.axis = .vertical
@@ -38,6 +34,9 @@ class ViewController: UIViewController {
         parentStackView.spacing = 1
         
         setParentStackViewConstraints()
+        configureTopViews()
+        configureTitleLabel()
+        configureStackViews()
         
         parentStackView.addArrangedSubview(topView1)
         parentStackView.addArrangedSubview(topView2)
@@ -46,22 +45,20 @@ class ViewController: UIViewController {
         parentStackView.addArrangedSubview(stackView3)
         parentStackView.addArrangedSubview(stackView2)
         parentStackView.addArrangedSubview(stackView1)
-        
-        
-        configureStackView()
     }
     
     private func setParentStackViewConstraints() {
         parentStackView.translatesAutoresizingMaskIntoConstraints = false
-        parentStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
-        parentStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 0).isActive = true
-        parentStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 0).isActive = true
-        parentStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
+        NSLayoutConstraint.activate([
+            parentStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0),
+            parentStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 0),
+            parentStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 0),
+            parentStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0)
+        ])
     }
     
-    private func configureStackView() {
+    private func configureStackViews() {
         stackView1.axis = .horizontal
-        stackView1.distribution = .fillEqually
         stackView1.distribution = .fillProportionally
         stackView1.spacing = 1
         
@@ -86,8 +83,6 @@ class ViewController: UIViewController {
         addButtonsToStackView3()
         addButtonsToStackView4()
         addButtonsToStackView5()
-        
-        
     }
     private func addButtonsToStackView1() {
         let button1 = Button()
@@ -96,27 +91,15 @@ class ViewController: UIViewController {
         button1.setTitleColor(.black, for: .normal)
         button1.backgroundColor = .systemGray4
         stackView1.addArrangedSubview(button1)
+        button1.widthAnchor.constraint(equalTo: stackView1.widthAnchor, multiplier: 0.498).isActive = true
         
-        //
-        button1.widthAnchor.constraint(equalTo: stackView1.widthAnchor, multiplier: 0.5).isActive = true
-        
-        //
-        
-        
-//        let button2 = Button()
-//        button2.setTitle("0", for: .normal)
-//        button2.titleLabel?.font = UIFont(name: "HelveticaNeue-Light", size: 46.0)
-//        button2.setTitleColor(.black, for: .normal)
-//        button2.backgroundColor = .systemGray4
-//        stackView1.addArrangedSubview(button2)
         let button3 = Button()
         button3.setTitle(",", for: .normal)
         button3.titleLabel?.font = UIFont(name: "HelveticaNeue-Light", size: 46.0)
         button3.setTitleColor(.black, for: .normal)
         button3.backgroundColor = .systemGray4
         stackView1.addArrangedSubview(button3)
-        
-        button3.widthAnchor.constraint(equalTo: stackView1.widthAnchor, multiplier: 0.2465).isActive = true
+        button3.widthAnchor.constraint(equalTo: stackView1.widthAnchor, multiplier: 0.2485).isActive = true
         
         let button4 = Button()
         button4.setTitle("=", for: .normal)
@@ -132,18 +115,21 @@ class ViewController: UIViewController {
         button1.setTitleColor(.black, for: .normal)
         button1.backgroundColor = .systemGray4
         stackView2.addArrangedSubview(button1)
+        
         let button2 = Button()
         button2.setTitle("2", for: .normal)
         button2.titleLabel?.font = UIFont(name: "HelveticaNeue-Light", size: 46.0)
         button2.setTitleColor(.black, for: .normal)
         button2.backgroundColor = .systemGray4
         stackView2.addArrangedSubview(button2)
+        
         let button3 = Button()
         button3.setTitle("3", for: .normal)
         button3.titleLabel?.font = UIFont(name: "HelveticaNeue-Light", size: 46.0)
         button3.setTitleColor(.black, for: .normal)
         button3.backgroundColor = .systemGray4
         stackView2.addArrangedSubview(button3)
+        
         let button4 = Button()
         button4.setTitle("+", for: .normal)
         button4.titleLabel?.font = UIFont(name: "HelveticaNeue-Light", size: 57.0)
@@ -158,18 +144,21 @@ class ViewController: UIViewController {
         button1.setTitleColor(.black, for: .normal)
         button1.backgroundColor = .systemGray4
         stackView3.addArrangedSubview(button1)
+        
         let button2 = Button()
         button2.setTitle("5", for: .normal)
         button2.titleLabel?.font = UIFont(name: "HelveticaNeue-Light", size: 46.0)
         button2.setTitleColor(.black, for: .normal)
         button2.backgroundColor = .systemGray4
         stackView3.addArrangedSubview(button2)
+        
         let button3 = Button()
         button3.setTitle("6", for: .normal)
         button3.titleLabel?.font = UIFont(name: "HelveticaNeue-Light", size: 46.0)
         button3.setTitleColor(.black, for: .normal)
         button3.backgroundColor = .systemGray4
         stackView3.addArrangedSubview(button3)
+        
         let button4 = Button()
         button4.setTitle("—", for: .normal)
         button4.titleLabel?.font = UIFont(name: "HelveticaNeue-Light", size: 46.0)
@@ -184,18 +173,21 @@ class ViewController: UIViewController {
         button1.setTitleColor(.black, for: .normal)
         button1.backgroundColor = .systemGray4
         stackView4.addArrangedSubview(button1)
+        
         let button2 = Button()
         button2.setTitle("8", for: .normal)
         button2.titleLabel?.font = UIFont(name: "HelveticaNeue-Light", size: 46.0)
         button2.setTitleColor(.black, for: .normal)
         button2.backgroundColor = .systemGray4
         stackView4.addArrangedSubview(button2)
+        
         let button3 = Button()
         button3.setTitle("9", for: .normal)
         button3.titleLabel?.font = UIFont(name: "HelveticaNeue-Light", size: 46.0)
         button3.setTitleColor(.black, for: .normal)
         button3.backgroundColor = .systemGray4
         stackView4.addArrangedSubview(button3)
+        
         let button4 = Button()
         button4.setTitle("x", for: .normal)
         button4.titleLabel?.font = UIFont(name: "HelveticaNeue-Light", size: 46.0)
@@ -211,18 +203,21 @@ class ViewController: UIViewController {
         button1.backgroundColor = .lightGray
         button1.tintColor = .black
         stackView5.addArrangedSubview(button1)
+        
         let button2 = Button()
         button2.setTitle("+/-", for: .normal)
         button2.titleLabel?.font = UIFont(name: "HelveticaNeue-Light", size: 37.0)
         button2.setTitleColor(.black, for: .normal)
         button2.backgroundColor = .lightGray
         stackView5.addArrangedSubview(button2)
+        
         let button3 = Button()
         button3.setTitle("%", for: .normal)
         button3.titleLabel?.font = UIFont(name: "HelveticaNeue-Light", size: 37.0)
         button3.setTitleColor(.black, for: .normal)
         button3.backgroundColor = .lightGray
         stackView5.addArrangedSubview(button3)
+        
         let button4 = Button()
         button4.setTitle("/", for: .normal)
         button4.titleLabel?.font = UIFont(name: "HelveticaNeue-Light", size: 43.0)
@@ -230,11 +225,15 @@ class ViewController: UIViewController {
         stackView5.addArrangedSubview(button4)
     }
     
-    private func  configureTitleLabel () {
+    private func configureTopViews() {
+        topView1.backgroundColor = .black
+        topView2.backgroundColor = .black
+    }
+    
+    private func configureTitleLabel () {
         topView2.addSubview(label)
         label.text = "0"
         label.textColor = .white
-        //label.font = UIFont.systemFont(ofSize: 70)
         label.font = UIFont.systemFont(ofSize: 80, weight: UIFont.Weight.thin)
         label.textAlignment = .right
         label.numberOfLines = 0
@@ -243,19 +242,16 @@ class ViewController: UIViewController {
         setTitleLabelConstraints()
     }
     
-    private func configureTopViews() {
-        topView1.backgroundColor = .black
-        topView2.backgroundColor = .black
-    }
-    
-    func setTitleLabelConstraints() {
+    private func setTitleLabelConstraints() {
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.topAnchor.constraint(equalTo: topView2.topAnchor, constant: 0).isActive = true
-        label.leadingAnchor.constraint(equalTo: topView2.leadingAnchor, constant: 20).isActive = true
-        label.trailingAnchor.constraint(equalTo: topView2.trailingAnchor, constant: -20).isActive = true
-        label.bottomAnchor.constraint(equalTo: topView2.bottomAnchor, constant: 0).isActive = true
         
+        NSLayoutConstraint.activate([
+            label.topAnchor.constraint(equalTo: topView2.topAnchor, constant: 0),
+            label.leadingAnchor.constraint(equalTo: topView2.leadingAnchor, constant: 20),
+            label.trailingAnchor.constraint(equalTo: topView2.trailingAnchor, constant: -20),
+            label.bottomAnchor.constraint(equalTo: topView2.bottomAnchor, constant: 0)
+        ])
     }
-    
-    
 }
+
+
