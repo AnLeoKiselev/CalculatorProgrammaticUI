@@ -28,30 +28,25 @@ class ViewController: UIViewController {
         view.addSubview(parentStackView)
         parentStackView.axis = .vertical
         parentStackView.distribution = .fillEqually
-        parentStackView.spacing = 20
+        parentStackView.spacing = 2
         
         setParentStackViewConstraints()
-        configureStackView()
-        
-            addButtonsToStackView1()
-            addButtonsToStackView2()
-            addButtonsToStackView3()
-            addButtonsToStackView4()
-            addButtonsToStackView5()
     
-            parentStackView.addArrangedSubview(stackView5)
-            parentStackView.addArrangedSubview(stackView4)
-            parentStackView.addArrangedSubview(stackView3)
-            parentStackView.addArrangedSubview(stackView2)
-            parentStackView.addArrangedSubview(stackView1)
+        parentStackView.addArrangedSubview(stackView5)
+        parentStackView.addArrangedSubview(stackView4)
+        parentStackView.addArrangedSubview(stackView3)
+        parentStackView.addArrangedSubview(stackView2)
+        parentStackView.addArrangedSubview(stackView1)
+        
+        configureStackView()
     }
     
     private func setParentStackViewConstraints() {
         parentStackView.translatesAutoresizingMaskIntoConstraints = false
-        parentStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30).isActive = true
-        parentStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 50).isActive = true
-        parentStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -50).isActive = true
-        parentStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -30).isActive = true
+        parentStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
+        parentStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 0).isActive = true
+        parentStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 0).isActive = true
+        parentStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
     }
     
     private func configureStackView() {
@@ -74,6 +69,12 @@ class ViewController: UIViewController {
         stackView5.axis = .horizontal
         stackView5.distribution = .fillEqually
         stackView5.spacing = 2
+
+        addButtonsToStackView1()
+        addButtonsToStackView2()
+        addButtonsToStackView3()
+        addButtonsToStackView4()
+        addButtonsToStackView5()
 
     }
     private func addButtonsToStackView1() {
