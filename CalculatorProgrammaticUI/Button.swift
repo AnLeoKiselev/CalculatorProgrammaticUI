@@ -20,9 +20,9 @@ class Button: UIButton {
     }
     
     func setupButton() {
-        setTitleColor(.white, for: .normal)
-        backgroundColor = .systemMint
-        titleLabel?.font = UIFont(name: "AvenirNext-DemiBoldItalic", size: 28)
+        //setTitleColor(.black, for: .normal)
+        //backgroundColor = .systemMint
+        //titleLabel?.font = UIFont(name: "AvenirNext-DemiBoldItalic", size: 28)
         layer.cornerRadius = 0
     }
     
