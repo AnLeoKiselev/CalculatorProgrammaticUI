@@ -62,6 +62,7 @@ class ViewController: UIViewController {
     private func configureStackView() {
         stackView1.axis = .horizontal
         stackView1.distribution = .fillEqually
+        stackView1.distribution = .fillProportionally
         stackView1.spacing = 1
         
         stackView2.axis = .horizontal
@@ -95,18 +96,28 @@ class ViewController: UIViewController {
         button1.setTitleColor(.black, for: .normal)
         button1.backgroundColor = .systemGray4
         stackView1.addArrangedSubview(button1)
-        let button2 = Button()
-        button2.setTitle("0", for: .normal)
-        button2.titleLabel?.font = UIFont(name: "HelveticaNeue-Light", size: 46.0)
-        button2.setTitleColor(.black, for: .normal)
-        button2.backgroundColor = .systemGray4
-        stackView1.addArrangedSubview(button2)
+        
+        //
+        button1.widthAnchor.constraint(equalTo: stackView1.widthAnchor, multiplier: 0.5).isActive = true
+        
+        //
+        
+        
+//        let button2 = Button()
+//        button2.setTitle("0", for: .normal)
+//        button2.titleLabel?.font = UIFont(name: "HelveticaNeue-Light", size: 46.0)
+//        button2.setTitleColor(.black, for: .normal)
+//        button2.backgroundColor = .systemGray4
+//        stackView1.addArrangedSubview(button2)
         let button3 = Button()
         button3.setTitle(",", for: .normal)
         button3.titleLabel?.font = UIFont(name: "HelveticaNeue-Light", size: 46.0)
         button3.setTitleColor(.black, for: .normal)
         button3.backgroundColor = .systemGray4
         stackView1.addArrangedSubview(button3)
+        
+        button3.widthAnchor.constraint(equalTo: stackView1.widthAnchor, multiplier: 0.2465).isActive = true
+        
         let button4 = Button()
         button4.setTitle("=", for: .normal)
         button4.titleLabel?.font = UIFont(name: "HelveticaNeue-Light", size: 54.0)
@@ -245,4 +256,6 @@ class ViewController: UIViewController {
         label.bottomAnchor.constraint(equalTo: topView2.bottomAnchor, constant: 0).isActive = true
         
     }
+    
+    
 }
